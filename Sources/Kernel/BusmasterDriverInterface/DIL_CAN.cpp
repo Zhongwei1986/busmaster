@@ -61,6 +61,7 @@ enum
 	DRIVER_CAN_ETAS_ES5821,
     DRIVER_CAN_VECTOR_XL,
     DRIVER_CAN_KVASER_CAN,
+    DRIVER_CAN_USB_CAN,
     DRIVER_CAN_MHS,
     DRIVER_CAN_NSI,
     DRIVER_CAN_IXXAT,
@@ -88,6 +89,7 @@ static ENTRY_DIL sg_ListDIL[] =
     {DRIVER_CAN_MHS,        "&MHS Tiny-CAN"     },
     {DRIVER_CAN_NSI,        "&NSI CAN-API"      },
     {DRIVER_CAN_PEAK_USB,   "&PEAK USB"         },
+    {DRIVER_CAN_USB_CAN,    "&USB CAN"          },
     {DRIVER_CAN_VECTOR_XL,  "&Vector XL"        },
     {DRIVER_CAN_VSCOM,      "VScom &CAN-API"    },
 };
@@ -334,6 +336,9 @@ HRESULT CDIL_CAN::DILC_SelectDriver(DWORD dwDriverID, HWND hWndOwner)
 
             case DRIVER_CAN_KVASER_CAN:
                 m_hDll = LoadLibrary("CAN_Kvaser_CAN.dll");
+                break;
+            case DRIVER_CAN_USB_CAN:
+                m_hDll = LoadLibrary("CAN_USB_CAN.dll");
                 break;
 
             case DRIVER_CAN_STUB:

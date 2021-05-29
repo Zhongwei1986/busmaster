@@ -369,3 +369,16 @@ Tests/PMD/cpd.html
 Tests/PMD/cpd.xml
 Tests/PMD/cpd-fixed.xml
 Tests/Requirements Traceability Matrix/report.html
+/.vs
+/Sources/BUSMASTER/.vs/BUSMASTER/v16
+/Sources/BUSMASTER/BIN/DumpFiles
+/Sources/Kernel/Utilities/Release/Utilities.tlog
+/Sources/Kernel/Utilities/Release
+/Sources/Kernel/BusmasterKernel/Release/BusmasterKernel.tlog
+/Sources/Kernel/BusmasterKernel/Release
+/Sources/Kernel/BusmasterKernel/Debug
+[Rr]elease
+/Sources/Kernel/BusmasterDriverInterface/DIL_J1939/out/build/x64-Debug
+[Dd]ebug
+.vs
+out
