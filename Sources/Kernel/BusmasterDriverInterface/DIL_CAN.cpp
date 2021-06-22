@@ -61,7 +61,6 @@ enum
 	DRIVER_CAN_ETAS_ES5821,
     DRIVER_CAN_VECTOR_XL,
     DRIVER_CAN_KVASER_CAN,
-    DRIVER_CAN_USB_CAN,
     DRIVER_CAN_MHS,
     DRIVER_CAN_NSI,
     DRIVER_CAN_IXXAT,
@@ -77,21 +76,20 @@ static ENTRY_DIL sg_ListDIL[] =
     /* simulation should be the first entry... */
     {DRIVER_CAN_STUB,       "&Simulation"       },
     /* ...all other drivers should be in alphabetical order */
-    {DRIVER_CAN_ETAS_BOA,   "ETAS &BOA"         },
-    {DRIVER_CAN_ETAS_ES581, "ETAS &ES581.3"     },
-    {DRIVER_CAN_ETAS_ES5814, "ETAS ES581.&4"    },
-	{DRIVER_CAN_ETAS_ES5821, "ETAS ES582.&1"	},
-    {DRIVER_CAN_ISOLAR,     "ETAS ISO&LAR-EVE"  },
-    {DRIVER_CAN_IVIEW,      "&i-VIEW"           },
-    {DRIVER_CAN_ICS_NEOVI,  "IntrepidCS ne&oVI" },
-    {DRIVER_CAN_IXXAT,      "I&XXAT VCI"        },
+    {DRIVER_CAN_MHS,        "&MHS Fake"     },
     {DRIVER_CAN_KVASER_CAN, "&Kvaser CAN"       },
-    {DRIVER_CAN_MHS,        "&MHS Tiny-CAN"     },
-    {DRIVER_CAN_NSI,        "&NSI CAN-API"      },
-    {DRIVER_CAN_PEAK_USB,   "&PEAK USB"         },
-    {DRIVER_CAN_USB_CAN,    "&USB CAN"          },
     {DRIVER_CAN_VECTOR_XL,  "&Vector XL"        },
-    {DRIVER_CAN_VSCOM,      "VScom &CAN-API"    },
+    //{DRIVER_CAN_ETAS_BOA,   "ETAS &BOA"         },
+    //{DRIVER_CAN_ETAS_ES581, "ETAS &ES581.3"     },
+    //{DRIVER_CAN_ETAS_ES5814, "ETAS ES581.&4"    },
+	//{DRIVER_CAN_ETAS_ES5821, "ETAS ES582.&1"	},
+    //{DRIVER_CAN_ISOLAR,     "ETAS ISO&LAR-EVE"  },
+    //{DRIVER_CAN_IVIEW,      "&i-VIEW"           },
+    //{DRIVER_CAN_ICS_NEOVI,  "IntrepidCS ne&oVI" },
+    //{DRIVER_CAN_IXXAT,      "I&XXAT VCI"        },
+    //{DRIVER_CAN_NSI,        "&NSI CAN-API"      },
+    //{DRIVER_CAN_PEAK_USB,   "&PEAK USB"         },
+    //{DRIVER_CAN_VSCOM,      "VScom &CAN-API"    },
 };
 
 CDIL_CAN::CDIL_CAN()
@@ -337,16 +335,13 @@ HRESULT CDIL_CAN::DILC_SelectDriver(DWORD dwDriverID, HWND hWndOwner)
             case DRIVER_CAN_KVASER_CAN:
                 m_hDll = LoadLibrary("CAN_Kvaser_CAN.dll");
                 break;
-            case DRIVER_CAN_USB_CAN:
-                m_hDll = LoadLibrary("CAN_USB_CAN.dll");
-                break;
-
+          
             case DRIVER_CAN_STUB:
                 m_hDll = LoadLibrary("CAN_STUB.dll");
                 break;
 
             case DRIVER_CAN_MHS:
-                m_hDll = LoadLibrary("CAN_MHS.dll");
+                m_hDll = LoadLibrary("CAN_MHS_fake.dll");
                 break;
 
             case DRIVER_CAN_NSI:
